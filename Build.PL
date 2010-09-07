@@ -27,7 +27,7 @@ my $builder = Module::Build->new(
 	},
 	add_to_cleanup      => [ 'Thread-SigMask-*' ],
 	create_makefile_pl  => 'small',
-	sign                => 0,
+	sign                => 1,
 );
 
 $builder->create_build_script();

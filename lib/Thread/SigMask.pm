@@ -6,7 +6,7 @@ use warnings FATAL => 'all';
 use XSLoader;
 use Sub::Exporter -setup => { exports => [qw/sigmask/], groups => { default => [qw/sigmask/] } };
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 XSLoader::load(__PACKAGE__, $VERSION);
 
 1;    # End of Thread::SigMask
@@ -19,7 +19,7 @@ Thread::SigMask - Thread specific signal masks
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 =head1 SYNOPSIS
 

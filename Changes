@@ -1,5 +1,8 @@
 Revision history for Thread-SigMask
 
+0.002   2010-09-07
+        Made sigmask's return value like sigprocmask's
+
 0.001   2010-09-06
         First version, released on an unsuspecting world.
 
