@@ -25,12 +25,17 @@ sigset_t* S_sv_to_sigset(pTHX_ SV* sigmask, const char* name) {
 
 MODULE = Thread::SigMask				PACKAGE = Thread::SigMask
 
-int
+SV*
 sigmask(how, set, oldset = undef)
 	int how;
 	SV* set;
 	SV* oldset;
+	PREINIT:
+		int ret;
 	CODE:
-		RETVAL = sigmask_func(how, sv_to_sigset(set, "set"), sv_to_sigset(oldset, "oldset"));
-	OUTPUT:
-		RETVAL
+		ret = sigmask_func(how, sv_to_sigset(set, "set"), sv_to_sigset(oldset, "oldset"));
+		if (ret == 0)
+			XSRETURN_PV("0 but true");
+		else
+			XSRETURN_EMPTY;
+
