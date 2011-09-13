@@ -16,8 +16,12 @@ sigset_t* S_sv_to_sigset(pTHX_ SV* sigmask, const char* name) {
 		return NULL;
 	if (!SvROK(sigmask) || !sv_derived_from(sigmask, "POSIX::SigSet"))
 		Perl_croak(aTHX_ "%s is not of type POSIX::SigSet");
+#if PERL_VERSION > 15 || PERL_VERSION == 15 && PERL_SUBVERSION > 2
+	return (sigset_t *) SvPV_nolen(SvRV(sigmask));
+#else
 	IV tmp = SvIV((SV*)SvRV(sigmask));
 	return INT2PTR(sigset_t*, tmp);
+#endif
 }
 #define sv_to_sigset(sigmask, name) S_sv_to_sigset(aTHX_ sigmask, name)
 
