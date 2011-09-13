@@ -16,16 +16,16 @@ __END__
 
 =head1 SYNOPSIS
 
-    use Thread::SigMask qw/sigset/;
-	use POSIX qw/SIG_BLOCK SIG_UNBLOCK/;
+ use Thread::SigMask qw/sigset/;
+ use POSIX qw/SIG_BLOCK SIG_UNBLOCK/;
 	
-    sigmask(SIG_BLOCK, $sigset);
-	...
-    sigmask(SIG_UNBLOCK, $sigset);
+ sigmask(SIG_BLOCK, $sigset);
+ ...
+ sigmask(SIG_UNBLOCK, $sigset);
 
 =head1 DESCRIPTION
 
-This module provides per-thread signal masks. On non-threaded perl's, it will be effectively the same as POSIX::sigprocmask. The interface works exactly the same as sigprocmask.
+This module provides per-thread signal masks. On non-threaded perls it will be effectively the same as POSIX::sigprocmask. The interface works exactly the same as sigprocmask.
 
 =func sigmask($how, $newset, $oldset = undef)
 
