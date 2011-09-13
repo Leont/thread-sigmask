@@ -1,5 +1,8 @@
 Revision history for Thread-SigMask
 
+{{$NEXT}}
+          Converted to Dist::Zilla
+
 0.002   2010-09-07
         Made sigmask's return value like sigprocmask's
 
