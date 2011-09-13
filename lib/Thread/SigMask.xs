@@ -14,7 +14,7 @@
 sigset_t* S_sv_to_sigset(pTHX_ SV* sigmask, const char* name) {
 	if (!SvOK(sigmask))
 		return NULL;
-	if (!SvROK(sigmask) || !sv_isa(sigmask, "POSIX::SigSet"))
+	if (!SvROK(sigmask) || !sv_derived_from(sigmask, "POSIX::SigSet"))
 		Perl_croak(aTHX_ "%s is not of type POSIX::SigSet");
 	IV tmp = SvIV((SV*)SvRV(sigmask));
 	return INT2PTR(sigset_t*, tmp);

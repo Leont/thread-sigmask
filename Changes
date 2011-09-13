@@ -2,6 +2,7 @@ Revision history for Thread-SigMask
 
 {{$NEXT}}
           Converted to Dist::Zilla
+          Allow subclasses of POSIX::SigSet
           Fixed documentation
 
 0.002   2010-09-07
