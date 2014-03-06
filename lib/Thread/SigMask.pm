@@ -4,13 +4,12 @@ use strict;
 use warnings FATAL => 'all';
 
 use XSLoader;
-use Sub::Exporter -setup => { exports => [qw/sigmask/], groups => { default => [qw/sigmask/] } };
+use Exporter 5.57 'import';
+our @EXPORT = qw/sigmask/;
 
 XSLoader::load(__PACKAGE__, __PACKAGE__->VERSION);
 
 1;
-
-__END__
 
 #ABSTRACT: Thread specific signal masks
 
